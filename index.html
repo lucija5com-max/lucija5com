@@ -3,18 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLANC CEO | Business & Marketing Support</title>
+  <title>BLANC CEO | Business Support & Marketing</title>
   <style>
+    :root {
+      --bg: #f8f2eb;
+      --bg-soft: #fdf9f5;
+      --card: #fffaf5;
+      --text: #3f342d;
+      --text-soft: #6d5f56;
+      --line: #eadfd2;
+      --accent: #b89b7c;
+      --accent-dark: #9b7f63;
+      --accent-light: #efe2d2;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(95, 72, 54, 0.08);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: "Georgia", "Times New Roman", serif;
-      background-color: #fcfaf6;
-      color: #2f2f2f;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -24,340 +39,473 @@
     }
 
     .container {
-      width: 90%;
-      max-width: 1200px;
+      width: min(1120px, 92%);
       margin: 0 auto;
     }
 
     header {
-      background: #fcfaf6;
-      border-bottom: 1px solid #e6e0d5;
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: rgba(248, 242, 235, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
       padding: 18px 0;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #7f9a87;
-      letter-spacing: 1px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-badge {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #f6efe7;
+      border: 1px solid #ddcfbf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-badge span {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      color: var(--accent-dark);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 2px;
     }
 
     .nav-links {
       display: flex;
       gap: 24px;
-      font-size: 16px;
-    }
-
-    .nav-links a:hover {
-      color: #7f9a87;
-    }
-
-    .hero {
-      padding: 90px 0 70px;
-      background: linear-gradient(to bottom, #fcfaf6, #f4efe7);
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 50px;
+      flex-wrap: wrap;
       align-items: center;
     }
 
-    .hero h1 {
-      font-size: 54px;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      color: #1f1f1f;
+    .nav-links a {
+      font-size: 15px;
+      color: var(--text-soft);
+      transition: 0.25s;
     }
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #555;
-      max-width: 650px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+    .nav-links a:hover {
+      color: var(--accent-dark);
     }
 
     .btn {
-      display: inline-block;
-      padding: 14px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
       border-radius: 999px;
-      font-size: 16px;
-      transition: 0.3s ease;
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.25s ease;
       cursor: pointer;
     }
 
     .btn-primary {
-      background-color: #7f9a87;
-      color: white;
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: var(--shadow);
     }
 
     .btn-primary:hover {
-      background-color: #6c8773;
+      background: var(--accent-dark);
+      transform: translateY(-1px);
     }
 
     .btn-secondary {
-      border: 1px solid #7f9a87;
-      color: #7f9a87;
       background: transparent;
+      color: var(--accent-dark);
+      border-color: var(--accent);
     }
 
     .btn-secondary:hover {
-      background: #edf3ee;
+      background: var(--accent-light);
     }
 
-    .hero-box {
-      background: #ffffff;
-      border: 1px solid #e7e0d4;
-      border-radius: 24px;
-      padding: 35px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    .hero {
+      padding: 84px 0 56px;
+      background:
+        radial-gradient(circle at top right, #f0e4d8 0, transparent 30%),
+        radial-gradient(circle at bottom left, #f3e6da 0, transparent 28%),
+        var(--bg);
     }
 
-    .hero-box h3 {
-      font-size: 22px;
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
       margin-bottom: 18px;
-      color: #7f9a87;
     }
 
-    .hero-box ul {
+    .hero h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 58px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-soft);
+      max-width: 660px;
+      margin-bottom: 26px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .mini-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mini-points span {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--accent-dark);
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: var(--text-soft);
+    }
+
+    .hero-list {
       list-style: none;
     }
 
-    .hero-box li {
+    .hero-list li {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
       margin-bottom: 12px;
-      font-size: 17px;
-      padding-left: 22px;
-      position: relative;
-    }
-
-    .hero-box li::before {
-      content: "•";
-      color: #7f9a87;
-      position: absolute;
-      left: 0;
-      font-size: 22px;
-      top: -2px;
+      font-size: 15px;
+      color: var(--text);
     }
 
     section {
-      padding: 80px 0;
+      padding: 78px 0;
     }
 
-    .section-title {
+    .section-head {
       text-align: center;
-      margin-bottom: 20px;
-      font-size: 40px;
-      color: #1f1f1f;
+      margin-bottom: 42px;
     }
 
-    .section-subtitle {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 50px;
-      font-size: 18px;
-      color: #666;
+    .section-head h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      margin-bottom: 12px;
     }
 
-    .about {
-      background: #fffdf9;
-    }
-
-    .about-content {
-      max-width: 900px;
+    .section-head p {
+      max-width: 760px;
       margin: 0 auto;
+      color: var(--text-soft);
+      font-size: 17px;
+    }
+
+    .about-box {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, #f5e8da, #fff8f1);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 36px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      font-size: 19px;
-      color: #444;
+    }
+
+    .about-visual span {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 56px;
+      color: var(--accent-dark);
+    }
+
+    .about-content h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .about-content p {
+      color: var(--text-soft);
+      margin-bottom: 12px;
+      font-size: 16px;
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
     .service-card {
-      background: white;
-      border: 1px solid #e8e1d7;
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: 0.25s;
     }
 
-    .service-card h3 {
-      font-size: 24px;
-      margin-bottom: 14px;
-      color: #7f9a87;
+    .service-card:hover {
+      transform: translateY(-4px);
     }
 
-    .service-card p {
-      color: #555;
-      font-size: 17px;
-    }
-
-    .benefits {
-      background: #f7f2ea;
-    }
-
-    .benefit-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      max-width: 950px;
-      margin: 0 auto;
-    }
-
-    .benefit-item {
-      background: #fff;
-      border-radius: 18px;
-      padding: 24px;
-      border: 1px solid #e7dfd4;
-    }
-
-    .benefit-item h4 {
-      margin-bottom: 10px;
-      color: #7f9a87;
-      font-size: 20px;
-    }
-
-    .benefit-item p {
-      color: #555;
-      font-size: 16px;
-    }
-
-    .cta {
-      background: linear-gradient(to right, #7f9a87, #9bb0a1);
-      color: white;
-      text-align: center;
-      border-radius: 30px;
-      padding: 55px 35px;
-    }
-
-    .cta h2 {
-      font-size: 40px;
+    .service-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .cta p {
-      max-width: 750px;
-      margin: 0 auto 28px;
+    .service-card h4 {
+      font-size: 21px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .service-card p {
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .why {
+      background: #fbf6f0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .why-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .why-item h4 {
+      margin-bottom: 8px;
       font-size: 18px;
-      color: #f7f7f7;
+      color: var(--accent-dark);
     }
 
-    .cta .btn-primary {
+    .why-item p {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #bda183, #d0b59c);
+      color: white;
+      border-radius: 30px;
+      padding: 46px 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      font-size: 17px;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .cta-box .btn-primary {
       background: white;
-      color: #7f9a87;
+      color: var(--accent-dark);
     }
 
-    .cta .btn-primary:hover {
-      background: #f4f4f4;
+    .cta-box .btn-primary:hover {
+      background: #fff8f2;
     }
 
-    .cta .btn-secondary {
-      border: 1px solid white;
+    .cta-box .btn-secondary {
+      border-color: rgba(255,255,255,0.7);
       color: white;
     }
 
-    .cta .btn-secondary:hover {
+    .cta-box .btn-secondary:hover {
       background: rgba(255,255,255,0.12);
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: start;
+      gap: 24px;
     }
 
     .contact-card {
-      background: white;
-      border: 1px solid #e8e1d7;
-      border-radius: 22px;
-      padding: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .contact-card h3 {
-      font-size: 28px;
-      margin-bottom: 18px;
-      color: #7f9a87;
+    .contact-card h4 {
+      font-size: 24px;
+      margin-bottom: 14px;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
     }
 
-    .contact-card p {
+    .contact-item {
       margin-bottom: 12px;
-      font-size: 17px;
-      color: #555;
+      color: var(--text-soft);
+      font-size: 16px;
     }
 
-    .footer {
-      padding: 30px 0;
+    .contact-item strong {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
       text-align: center;
-      color: #777;
-      font-size: 15px;
-      border-top: 1px solid #e6e0d5;
-      background: #fcfaf6;
+      color: var(--text-soft);
+      font-size: 14px;
     }
 
-    @media (max-width: 992px) {
-      .hero-content,
+    @media (max-width: 1024px) {
+      .hero-wrap,
+      .about-box,
       .services-grid,
-      .benefit-list,
+      .why-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .section-title {
-        font-size: 32px;
+      .hero h2 {
+        font-size: 46px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .nav {
         flex-direction: column;
-        gap: 16px;
+        align-items: flex-start;
       }
 
       .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
         gap: 14px;
       }
 
       .hero {
-        padding: 70px 0 50px;
+        padding-top: 58px;
       }
 
-      .hero h1 {
-        font-size: 34px;
+      .hero h2 {
+        font-size: 38px;
       }
 
-      .hero p {
+      .section-head h3,
+      .cta-box h3 {
+        font-size: 32px;
+      }
+
+      .brand-text h1 {
         font-size: 18px;
-      }
-
-      .cta h2 {
-        font-size: 30px;
       }
     }
   </style>
@@ -366,145 +514,184 @@
 
   <header>
     <div class="container nav">
-      <div class="logo">BLANC CEO</div>
+      <div class="brand">
+        <div class="brand-badge">
+          <span>blanc.</span>
+        </div>
+        <div class="brand-text">
+          <h1>BLANC CEO</h1>
+          <p>Business Support</p>
+        </div>
+      </div>
+
       <nav class="nav-links">
-        <a href="#about">O meni</a>
-        <a href="#services">Usluge</a>
-        <a href="#benefits">Zašto ja</a>
+        <a href="#about">O nama</a>
+        <a href="#services">Što nudimo</a>
+        <a href="#why">Zašto mi</a>
         <a href="#contact">Kontakt</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
-    <div class="container hero-content">
+    <div class="container hero-wrap">
       <div>
-        <h1>Business & Marketing Support za moderne brendove i poduzetnike</h1>
+        <div class="eyebrow">Your Business Support in One Place</div>
+        <h2>Modern support za business, marketing i organizaciju — sve na jednom mjestu.</h2>
         <p>
-          Pomažem poduzetnicima i brendovima kroz organizaciju poslovanja, marketing podršku,
-          komunikaciju, sadržaj i svakodnevni business support kako bi vaše poslovanje bilo jednostavnije,
-          profesionalnije i učinkovitije.
+          Pomažemo poduzetnicima i brendovima kroz business administration, social media management,
+          marketing support i bolju organizaciju svakodnevnog poslovanja — jednostavno, elegantno i pristupačno.
         </p>
+
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">Pošalji upit</a>
-          <a href="tel:+385000000000" class="btn btn-secondary">Nazovi me</a>
+          <a href="https://instagram.com/blanc.business.co" target="_blank" class="btn btn-primary">Javi se na Instagramu</a>
+          <a href="tel:+38595383285" class="btn btn-secondary">Nazovi nas</a>
+          <a href="#services" class="btn btn-secondary">Pogledaj što nudimo</a>
+        </div>
+
+        <div class="mini-points">
+          <span>Social Media Management</span>
+          <span>Business Administration</span>
+          <span>Marketing</span>
+          <span>Business Organization</span>
         </div>
       </div>
 
-      <div class="hero-box">
-        <h3>Što nudim?</h3>
-        <ul>
-          <li>Business support i administrativna podrška</li>
-          <li>Marketing support i pomoć u promociji</li>
-          <li>Komunikacija s klijentima i organizacija</li>
-          <li>Kreiranje sadržaja i prisutnost na društvenim mrežama</li>
-          <li>Podrška poduzetnicima, malim brendovima i CEO-ima</li>
+      <div class="hero-card">
+        <h3>Let's work together.</h3>
+        <p>
+          Ako tražiš podršku koja je profesionalna, organizirana i vizualno usklađena s tvojim brendom — tu smo.
+        </p>
+
+        <ul class="hero-list">
+          <li>✔ Business support za male brendove i poduzetnike</li>
+          <li>✔ Marketing podrška i pomoć oko sadržaja</li>
+          <li>✔ Organizacija poslovanja i administracije</li>
+          <li>✔ Pristupačan i moderan pristup</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="about" class="about">
+  <section id="about">
     <div class="container">
-      <h2 class="section-title">O meni</h2>
-      <p class="section-subtitle">
-        Profesionalna podrška za poduzetnike koji žele više reda, više vidljivosti i manje stresa u svakodnevnom poslovanju.
-      </p>
-      <div class="about-content">
+      <div class="section-head">
+        <h3>O nama</h3>
         <p>
-          BLANC CEO je prostor u kojem spajam business support i marketing support u jednu elegantnu,
-          modernu i korisnu uslugu. Moj cilj je pomoći poduzetnicima, brendovima i CEO-ima da lakše vode
-          svoje poslovanje, bolje komuniciraju s klijentima i kvalitetnije predstave svoj brand online.
+          BLANC CEO je moderan support brand koji spaja business administraciju, marketing i organizaciju u jednu jasnu i elegantnu priču.
         </p>
-        <br>
-        <p>
-          Ako tražite osobu koja može pomoći oko organizacije, marketinga, sadržaja, komunikacije i
-          opće poslovne podrške – na pravom ste mjestu.
-        </p>
+      </div>
+
+      <div class="about-box">
+        <div class="about-visual">
+          <span>blanc.</span>
+        </div>
+
+        <div class="about-content">
+          <h4>Podrška koja olakšava business.</h4>
+          <p>
+            Naš cilj je pomoći brendovima, poduzetnicima i malim businessima da imaju više reda, više prisutnosti online i manje stresa u svakodnevnom radu.
+          </p>
+          <p>
+            Bilo da ti treba pomoć oko društvenih mreža, organizacije zadataka, administracije ili marketing podrške — BLANC CEO je tu da tvoj business izgleda i funkcionira bolje.
+          </p>
+          <p>
+            Pristup nam je moderan, topao i profesionalan — zato želimo da suradnja bude jednostavna, ugodna i učinkovita.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="services">
     <div class="container">
-      <h2 class="section-title">Usluge</h2>
-      <p class="section-subtitle">
-        Usluge prilagođene modernim poduzetnicima i brendovima kojima treba pouzdana i kvalitetna podrška.
-      </p>
+      <div class="section-head">
+        <h3>Što nudimo</h3>
+        <p>
+          Praktična i lijepo zaokružena podrška za business koji želi rasti, biti organiziran i ostaviti dobar dojam.
+        </p>
+      </div>
 
       <div class="services-grid">
         <div class="service-card">
-          <h3>Business Support</h3>
+          <div class="service-number">01</div>
+          <h4>Social Media Management</h4>
           <p>
-            Podrška u svakodnevnom poslovanju, organizaciji zadataka, administraciji, koordinaciji i
-            općem vođenju poslovnih procesa.
+            Podrška oko prisutnosti na društvenim mrežama, osnovnog sadržaja, planiranja objava i boljeg dojma online.
           </p>
         </div>
 
         <div class="service-card">
-          <h3>Marketing Support</h3>
+          <div class="service-number">02</div>
+          <h4>Business Administration</h4>
           <p>
-            Pomoć u promociji brenda, osmišljavanju sadržaja, komunikaciji prema publici i jačanju online prisutnosti.
+            Pomoć oko administrativnih zadataka, organizacije, koordinacije i svakodnevnog business supporta.
           </p>
         </div>
 
         <div class="service-card">
-          <h3>Content & Social Media</h3>
+          <div class="service-number">03</div>
+          <h4>Marketing Support</h4>
           <p>
-            Kreiranje sadržaja za društvene mreže, tekstova, opisa, objava i osnovnih marketinških materijala.
+            Podrška u marketing aktivnostima, osnovnom brand predstavljanju i boljoj komunikaciji prema publici.
           </p>
         </div>
 
         <div class="service-card">
-          <h3>Client Communication</h3>
+          <div class="service-number">04</div>
+          <h4>Business Organization</h4>
           <p>
-            Profesionalna komunikacija s klijentima, odgovaranje na upite, organizacija termina i održavanje odnosa s klijentima.
+            Više reda, bolji pregled obveza i lakša organizacija poslovanja za manje kaosa i više fokusa.
           </p>
         </div>
 
         <div class="service-card">
-          <h3>Brand Presentation</h3>
+          <div class="service-number">05</div>
+          <h4>Client Communication</h4>
           <p>
-            Pomoć u predstavljanju vašeg brenda na elegantan, jasan i profesionalan način kroz web, sadržaj i komunikaciju.
+            Profesionalnija i urednija komunikacija s klijentima, odgovaranje na upite i podrška u kontaktu.
           </p>
         </div>
 
         <div class="service-card">
-          <h3>Personalized Support</h3>
+          <div class="service-number">06</div>
+          <h4>Content & Brand Presence</h4>
           <p>
-            Svaki brand i svaki poduzetnik su drugačiji, zato se usluge mogu prilagoditi vašim specifičnim potrebama.
+            Tekstovi, ideje, opisi i sadržaj koji pomažu da tvoj brand izgleda jasnije, ljepše i pristupačnije.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="benefits" class="benefits">
+  <section id="why" class="why">
     <div class="container">
-      <h2 class="section-title">Zašto odabrati BLANC CEO?</h2>
-      <p class="section-subtitle">
-        Jer dobra podrška nije luksuz – nego važan dio uspješnog poslovanja.
-      </p>
+      <div class="section-head">
+        <h3>Zašto BLANC CEO?</h3>
+        <p>
+          Jer dobar support nije samo pomoć — nego i osjećaj da netko stvarno drži stvari pod kontrolom.
+        </p>
+      </div>
 
-      <div class="benefit-list">
-        <div class="benefit-item">
-          <h4>Profesionalnost</h4>
-          <p>Fokus na kvaliteti, urednosti, jasnoći i ozbiljnom pristupu svakom klijentu.</p>
+      <div class="why-grid">
+        <div class="why-item">
+          <h4>Moderan pristup</h4>
+          <p>Minimalistički, uredno i prilagođeno današnjim brendovima.</p>
         </div>
 
-        <div class="benefit-item">
+        <div class="why-item">
+          <h4>Pristupačnost</h4>
+          <p>Želimo da suradnja bude jednostavna, topla i bez kompliciranja.</p>
+        </div>
+
+        <div class="why-item">
           <h4>Organizacija</h4>
-          <p>Pomažem unijeti više reda, bolje procese i manje kaosa u svakodnevno poslovanje.</p>
+          <p>Pomažemo unijeti više reda i lakše vođenje svakodnevnih obveza.</p>
         </div>
 
-        <div class="benefit-item">
-          <h4>Estetika & Brand dojam</h4>
-          <p>Važno mi je da vaš brand ostavi elegantan, moderan i profesionalan dojam.</p>
-        </div>
-
-        <div class="benefit-item">
-          <h4>Individualan pristup</h4>
-          <p>Prilagođavam podršku potrebama vašeg businessa, ciljeva i svakodnevnih zadataka.</p>
+        <div class="why-item">
+          <h4>Business + marketing</h4>
+          <p>Ne gleda se samo izgled, nego i funkcionalnost tvog businessa.</p>
         </div>
       </div>
     </div>
@@ -512,15 +699,16 @@
 
   <section>
     <div class="container">
-      <div class="cta">
-        <h2>Trebate business ili marketing support?</h2>
+      <div class="cta-box">
+        <h3>Trebate support za svoj business?</h3>
         <p>
-          Ako želite pouzdanu osobu za podršku u poslovanju, marketingu i komunikaciji,
-          javite se i dogovorimo suradnju.
+          Ako želiš pomoć oko marketinga, organizacije, društvenih mreža ili business administracije,
+          javi se direktno putem Instagrama ili nas nazovi.
         </p>
+
         <div class="hero-buttons" style="justify-content:center;">
-          <a href="tel:+385000000000" class="btn btn-primary">Dogovori poziv</a>
-          <a href="mailto:vasemail@email.com" class="btn btn-secondary">Pošalji e-mail</a>
+          <a href="https://instagram.com/blanc.business.co" target="_blank" class="btn btn-primary">Pošalji poruku na Instagramu</a>
+          <a href="tel:+38595383285" class="btn btn-secondary">Nazovi: 095 38 32 85</a>
         </div>
       </div>
     </div>
@@ -528,37 +716,40 @@
 
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">Kontakt</h2>
-      <p class="section-subtitle">
-        Javite mi se za suradnju, upit ili dogovor oko usluga.
-      </p>
+      <div class="section-head">
+        <h3>Kontakt</h3>
+        <p>
+          Za upite i suradnju javi se direktno preko Instagrama ili nas kontaktiraj telefonom.
+        </p>
+      </div>
 
       <div class="contact-grid">
         <div class="contact-card">
-          <h3>Kontakt informacije</h3>
-          <p><strong>E-mail:</strong> vasemail@email.com</p>
-          <p><strong>Telefon:</strong> +385 00 000 0000</p>
-          <p><strong>Instagram:</strong> @blanc.ceo</p>
-          <p><strong>Lokacija:</strong> Zagreb, Hrvatska</p>
+          <h4>Kontakt informacije</h4>
+          <div class="contact-item"><strong>Telefon:</strong> 095 38 32 85</div>
+          <div class="contact-item"><strong>Instagram:</strong> @blanc.business.co</div>
+          <div class="contact-item"><strong>Brand:</strong> blankbusiness.co</div>
+          <div class="contact-item"><strong>Lokacija:</strong> Zagreb, Hrvatska</div>
         </div>
 
         <div class="contact-card">
-          <h3>Brzi upit</h3>
-          <p>
-            Kliknite na jedan od gumba ispod i javite se direktno.
-          </p>
-          <div class="hero-buttons" style="margin-top: 20px;">
-            <a href="mailto:vasemail@email.com" class="btn btn-primary">Pošalji upit</a>
-            <a href="tel:+385000000000" class="btn btn-secondary">Nazovi odmah</a>
+          <h4>Javi nam se direktno</h4>
+          <div class="contact-item">
+            Najbrže je da pošalješ poruku preko Instagrama ili nas odmah nazoveš.
+          </div>
+
+          <div class="hero-buttons" style="margin-top: 18px;">
+            <a href="https://instagram.com/blanc.business.co" target="_blank" class="btn btn-primary">Instagram DM</a>
+            <a href="tel:+38595383285" class="btn btn-secondary">Nazovi odmah</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <p>© 2026 BLANC CEO. Sva prava pridržana.</p>
+      © 2026 BLANC CEO · Zagreb, Hrvatska · Business Support & Marketing
     </div>
   </footer>
 
