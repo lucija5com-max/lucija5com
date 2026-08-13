@@ -1,12 +1,566 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blanc Business Co.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLANC CEO | Business & Marketing Support</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background-color: #fcfaf6;
+      color: #2f2f2f;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: #fcfaf6;
+      border-bottom: 1px solid #e6e0d5;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #7f9a87;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: #7f9a87;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      background: linear-gradient(to bottom, #fcfaf6, #f4efe7);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #1f1f1f;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #555;
+      max-width: 650px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #7f9a87;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #6c8773;
+    }
+
+    .btn-secondary {
+      border: 1px solid #7f9a87;
+      color: #7f9a87;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #edf3ee;
+    }
+
+    .hero-box {
+      background: #ffffff;
+      border: 1px solid #e7e0d4;
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    }
+
+    .hero-box h3 {
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: #7f9a87;
+    }
+
+    .hero-box ul {
+      list-style: none;
+    }
+
+    .hero-box li {
+      margin-bottom: 12px;
+      font-size: 17px;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .hero-box li::before {
+      content: "•";
+      color: #7f9a87;
+      position: absolute;
+      left: 0;
+      font-size: 22px;
+      top: -2px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 40px;
+      color: #1f1f1f;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      font-size: 18px;
+      color: #666;
+    }
+
+    .about {
+      background: #fffdf9;
+    }
+
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 19px;
+      color: #444;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #e8e1d7;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 14px;
+      color: #7f9a87;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 17px;
+    }
+
+    .benefits {
+      background: #f7f2ea;
+    }
+
+    .benefit-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .benefit-item {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid #e7dfd4;
+    }
+
+    .benefit-item h4 {
+      margin-bottom: 10px;
+      color: #7f9a87;
+      font-size: 20px;
+    }
+
+    .benefit-item p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    .cta {
+      background: linear-gradient(to right, #7f9a87, #9bb0a1);
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      padding: 55px 35px;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      max-width: 750px;
+      margin: 0 auto 28px;
+      font-size: 18px;
+      color: #f7f7f7;
+    }
+
+    .cta .btn-primary {
+      background: white;
+      color: #7f9a87;
+    }
+
+    .cta .btn-primary:hover {
+      background: #f4f4f4;
+    }
+
+    .cta .btn-secondary {
+      border: 1px solid white;
+      color: white;
+    }
+
+    .cta .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid #e8e1d7;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    }
+
+    .contact-card h3 {
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: #7f9a87;
+    }
+
+    .contact-card p {
+      margin-bottom: 12px;
+      font-size: 17px;
+      color: #555;
+    }
+
+    .footer {
+      padding: 30px 0;
+      text-align: center;
+      color: #777;
+      font-size: 15px;
+      border-top: 1px solid #e6e0d5;
+      background: #fcfaf6;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content,
+      .services-grid,
+      .benefit-list,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 70px 0 50px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .cta h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Blanc Business Co.</h1>
-  <p>Dobrodošli na našu web stranicu.</p>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">BLANC CEO</div>
+      <nav class="nav-links">
+        <a href="#about">O meni</a>
+        <a href="#services">Usluge</a>
+        <a href="#benefits">Zašto ja</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div>
+        <h1>Business & Marketing Support za moderne brendove i poduzetnike</h1>
+        <p>
+          Pomažem poduzetnicima i brendovima kroz organizaciju poslovanja, marketing podršku,
+          komunikaciju, sadržaj i svakodnevni business support kako bi vaše poslovanje bilo jednostavnije,
+          profesionalnije i učinkovitije.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Pošalji upit</a>
+          <a href="tel:+385000000000" class="btn btn-secondary">Nazovi me</a>
+        </div>
+      </div>
+
+      <div class="hero-box">
+        <h3>Što nudim?</h3>
+        <ul>
+          <li>Business support i administrativna podrška</li>
+          <li>Marketing support i pomoć u promociji</li>
+          <li>Komunikacija s klijentima i organizacija</li>
+          <li>Kreiranje sadržaja i prisutnost na društvenim mrežama</li>
+          <li>Podrška poduzetnicima, malim brendovima i CEO-ima</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">O meni</h2>
+      <p class="section-subtitle">
+        Profesionalna podrška za poduzetnike koji žele više reda, više vidljivosti i manje stresa u svakodnevnom poslovanju.
+      </p>
+      <div class="about-content">
+        <p>
+          BLANC CEO je prostor u kojem spajam business support i marketing support u jednu elegantnu,
+          modernu i korisnu uslugu. Moj cilj je pomoći poduzetnicima, brendovima i CEO-ima da lakše vode
+          svoje poslovanje, bolje komuniciraju s klijentima i kvalitetnije predstave svoj brand online.
+        </p>
+        <br>
+        <p>
+          Ako tražite osobu koja može pomoći oko organizacije, marketinga, sadržaja, komunikacije i
+          opće poslovne podrške – na pravom ste mjestu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Usluge</h2>
+      <p class="section-subtitle">
+        Usluge prilagođene modernim poduzetnicima i brendovima kojima treba pouzdana i kvalitetna podrška.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Business Support</h3>
+          <p>
+            Podrška u svakodnevnom poslovanju, organizaciji zadataka, administraciji, koordinaciji i
+            općem vođenju poslovnih procesa.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Marketing Support</h3>
+          <p>
+            Pomoć u promociji brenda, osmišljavanju sadržaja, komunikaciji prema publici i jačanju online prisutnosti.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Content & Social Media</h3>
+          <p>
+            Kreiranje sadržaja za društvene mreže, tekstova, opisa, objava i osnovnih marketinških materijala.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Client Communication</h3>
+          <p>
+            Profesionalna komunikacija s klijentima, odgovaranje na upite, organizacija termina i održavanje odnosa s klijentima.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Brand Presentation</h3>
+          <p>
+            Pomoć u predstavljanju vašeg brenda na elegantan, jasan i profesionalan način kroz web, sadržaj i komunikaciju.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Personalized Support</h3>
+          <p>
+            Svaki brand i svaki poduzetnik su drugačiji, zato se usluge mogu prilagoditi vašim specifičnim potrebama.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" class="benefits">
+    <div class="container">
+      <h2 class="section-title">Zašto odabrati BLANC CEO?</h2>
+      <p class="section-subtitle">
+        Jer dobra podrška nije luksuz – nego važan dio uspješnog poslovanja.
+      </p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <h4>Profesionalnost</h4>
+          <p>Fokus na kvaliteti, urednosti, jasnoći i ozbiljnom pristupu svakom klijentu.</p>
+        </div>
+
+        <div class="benefit-item">
+          <h4>Organizacija</h4>
+          <p>Pomažem unijeti više reda, bolje procese i manje kaosa u svakodnevno poslovanje.</p>
+        </div>
+
+        <div class="benefit-item">
+          <h4>Estetika & Brand dojam</h4>
+          <p>Važno mi je da vaš brand ostavi elegantan, moderan i profesionalan dojam.</p>
+        </div>
+
+        <div class="benefit-item">
+          <h4>Individualan pristup</h4>
+          <p>Prilagođavam podršku potrebama vašeg businessa, ciljeva i svakodnevnih zadataka.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>Trebate business ili marketing support?</h2>
+        <p>
+          Ako želite pouzdanu osobu za podršku u poslovanju, marketingu i komunikaciji,
+          javite se i dogovorimo suradnju.
+        </p>
+        <div class="hero-buttons" style="justify-content:center;">
+          <a href="tel:+385000000000" class="btn btn-primary">Dogovori poziv</a>
+          <a href="mailto:vasemail@email.com" class="btn btn-secondary">Pošalji e-mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Kontakt</h2>
+      <p class="section-subtitle">
+        Javite mi se za suradnju, upit ili dogovor oko usluga.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Kontakt informacije</h3>
+          <p><strong>E-mail:</strong> vasemail@email.com</p>
+          <p><strong>Telefon:</strong> +385 00 000 0000</p>
+          <p><strong>Instagram:</strong> @blanc.ceo</p>
+          <p><strong>Lokacija:</strong> Zagreb, Hrvatska</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Brzi upit</h3>
+          <p>
+            Kliknite na jedan od gumba ispod i javite se direktno.
+          </p>
+          <div class="hero-buttons" style="margin-top: 20px;">
+            <a href="mailto:vasemail@email.com" class="btn btn-primary">Pošalji upit</a>
+            <a href="tel:+385000000000" class="btn btn-secondary">Nazovi odmah</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 BLANC CEO. Sva prava pridržana.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
